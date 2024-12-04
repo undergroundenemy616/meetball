@@ -3,8 +3,6 @@ version: '3'
 tasks:
   lint_mb:
     cmds:
-      - isort backend/meetball/src
-      - autoflake --in-place -r backend/meetball/src
-      - black backend/meetball/src
       - ruff check backend/meetball/src --fix
+      - ruff format backend/meetball/src
       - mypy --config-file=backend/meetball/pyproject.toml backend/meetball/src

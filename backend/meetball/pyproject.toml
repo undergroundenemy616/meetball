@@ -19,49 +19,14 @@ autoflake = "^2.3.1"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.autoflake]
-remove-all-unused-imports = true
-ignore-init-module-imports = true
-expand-star-imports = true
-remove-duplicate-keys = true
-
-[tool.black]
-line-length = 120
-target-version = ['py311']
-exclude = '''
-(
-  \.eggs
-  |\.git
-  |\.hg
-  |\.mypy_cache
-  |\.nox
-  |\.tox
-  |\.venv
-  |\.pyc
-  |\.pyi
-  |_build
-  |buck-out
-  |build
-  |dist
-  |venv
-)
-'''
-
-[tool.isort]
-line_length = 120
-sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
-multi_line_output = 3
-profile = "black"
-src_paths = "."
-lines_after_imports = 2
-
 
 [tool.ruff]
 line-length = 120
-target-version = "py311"
+target-version = "py312"
 fix = true
 lint.select = [
     "F",   # pyflakes
+    "I",   # isort
     "E",   # pycodestyle errors
     "W",   # pycodestyle warnings
     "UP",  # pyupgrade
@@ -72,6 +37,7 @@ lint.select = [
     "BLE", # flake8-blind-except
     "T20", # flake8-print
     "Q",   # flake8-quotes
+    "ARG", # flake8-unused-arguments
 ]
 exclude = [
     "eggs",
