@@ -58,7 +58,6 @@ exclude = [
 max-complexity = 5
 
 
-
 [tool.mypy]
 explicit_package_bases = true
 strict = true
