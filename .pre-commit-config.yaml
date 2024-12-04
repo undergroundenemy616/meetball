@@ -18,3 +18,11 @@ repos:
         pass_filenames: false
         files: ''
         args: [--config-file=backend/meetball/pyproject.toml, backend/meetball/src]
+
+  - repo: local
+    hooks:
+      - id: commit-msg-hook
+        name: Commit message hook
+        entry: python git_hooks/commit_msg.py
+        language: python
+        stages: [ commit-msg ]
